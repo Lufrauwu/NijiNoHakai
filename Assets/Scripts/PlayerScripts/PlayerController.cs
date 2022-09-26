@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
              {
 
              }*/
-
             for (int i = 0; i < 2; i++)
             {
                 
@@ -74,8 +73,6 @@ public class PlayerController : MonoBehaviour
                 playerVelocity.x = 1;
                 controller.Move(playerVelocity * Time.deltaTime);
             }
-            
-
         }
     }
 }
