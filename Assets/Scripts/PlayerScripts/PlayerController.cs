@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private Transform _camera;
+    private float _timer = 1;
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField]  private float gravityValue = -9.81f;
@@ -45,18 +46,36 @@ public class PlayerController : MonoBehaviour
         Vector2 movementInput = _playerInput.PlayerMain.Move.ReadValue<Vector2>();
         Vector3 move = new Vector3(movementInput.x, 0f, movementInput.y);
         controller.Move(move * Time.deltaTime * playerSpeed);
-
+        Dash();
+        
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
         }
 
-        if (_playerInput.PlayerMain.Jump.triggered && groundedPlayer)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
-
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    void Dash()
+    {
+        if (_playerInput.PlayerMain.Jump.triggered)
+        {
+            _timer += 1;
+            /* while(_timer < 2f)
+             {
+
+             }*/
+
+            for (int i = 0; i < 2; i++)
+            {
+                
+                print("Active");
+                playerVelocity.x = 1;
+                controller.Move(playerVelocity * Time.deltaTime);
+            }
+            
+
+        }
     }
 }
