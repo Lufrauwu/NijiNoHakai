@@ -20,6 +20,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void NextScene()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
@@ -30,5 +36,11 @@ public class LevelManager : MonoBehaviour
        // _transition.SetTrigger("Start");
         yield return new WaitForSeconds(_transitionTime);
         SceneManager.LoadScene(levelIndex);
+    }
+
+    public void MainMenu(string sceneName)
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject _gameOver = default;
+    [SerializeField] private GameObject _pauseButton = default;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             _gameOver.SetActive(true);
+            _pauseButton.SetActive(false);
         }
     }
 }
