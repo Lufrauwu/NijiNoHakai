@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     private float _transitionTime = 1.0f;
     public static LevelManager Instance { get; private set; }
 
+
     private void Awake()
     {
         if (Instance)
@@ -18,12 +19,15 @@ public class LevelManager : MonoBehaviour
         {
             Instance = this;
         }
+        
+
     }
 
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
 
     public void NextScene()

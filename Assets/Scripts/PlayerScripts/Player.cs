@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
         {
             _gameOver.SetActive(true);
             _pauseButton.SetActive(false);
+            Time.timeScale = 0;
         }
     }
 }

@@ -13,11 +13,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField]  private float gravityValue = -9.81f;
+    private GameManager _gameManager = default;
+    [SerializeField] private GameObject _playerGameObject = default;
 
     void Awake()
     {
         _playerInput = new PlayerMovement();
         controller = GetComponent<CharacterController>();
+        _gameManager = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+        _playerGameObject.transform.position = _gameManager._lastCheckpointPos;
+
     }
 
     void OnEnable()
