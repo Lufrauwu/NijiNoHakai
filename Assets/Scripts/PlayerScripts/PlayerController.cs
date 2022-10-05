@@ -13,16 +13,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField]  private float gravityValue = -9.81f;
-    private GameManager _gameManager = default;
-    [SerializeField] private GameObject _playerGameObject = default;
+    [SerializeField] private Animator _anim = default;
 
     void Awake()
     {
         _playerInput = new PlayerMovement();
         controller = GetComponent<CharacterController>();
-        _gameManager = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
-        _playerGameObject.transform.position = _gameManager._lastCheckpointPos;
-
     }
 
     void OnEnable()
@@ -42,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        LightAttack();
+        HeavyAttack();
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -56,10 +54,41 @@ public class PlayerController : MonoBehaviour
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
+            _anim.SetFloat("walking", 1);
+        }
+        else
+        {
+            _anim.SetFloat("walking", 0);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    public void LightAttack()
+    {
+        if (_playerInput.PlayerMain.LightAttack.triggered)
+        {
+            Debug.Log("attack");
+            _anim.SetFloat("attack", 1);
+        }
+        else
+        {
+            _anim.SetFloat("attack", 0);
+        }
+    }
+
+    public void HeavyAttack()
+    {
+        if (_playerInput.PlayerMain.HeavyAttack.triggered)
+        {
+            Debug.Log("HeavyAttack");
+            _anim.SetFloat("Hattack", 1);
+        }
+        else
+        {
+            _anim.SetFloat("Hattack", 0);
+        }
     }
 
     void Dash()
