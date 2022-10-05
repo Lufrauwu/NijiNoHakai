@@ -96,10 +96,6 @@ public class PlayerController : MonoBehaviour
         if (_playerInput.PlayerMain.Jump.triggered)
         {
             _timer += 1;
-            /* while(_timer < 2f)
-             {
-
-             }*/
             for (int i = 0; i < 2; i++)
             {
                 
