@@ -6,8 +6,8 @@ public class PlayerPosSave : MonoBehaviour
 
     private void Start()
     {
-      //  _gameManager = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
-   //     transform.position = _gameManager._lastCheckpointPos;
+       //_gameManager = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+      // transform.position = _gameManager._lastCheckpointPos;
     }
     
 }
