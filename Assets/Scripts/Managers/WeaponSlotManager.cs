@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class WeaponSlotManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private WeaponHolderSlot _leftHandSlot = default;
+    WeaponHolderSlot _rightHandSlot = default;
+
+    private void Awake()
     {
-        
+        WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
+        foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
+        {
+            if (weaponSlot._isLeftHandSlot)
+            {
+                _leftHandSlot = weaponSlot;
+            }
+            else if (weaponSlot._isRghtHandSlot)
+            {
+                _rightHandSlot = weaponSlot;
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadWeaponOnSlot(WeaponItem weaponItem, bool isLeft)
     {
-        
+        if (isLeft)
+        {
+            _leftHandSlot.LoadWeaponModel(weaponItem);
+        }
+        else
+        {
+            _rightHandSlot.LoadWeaponModel(weaponItem);
+        }
     }
 }

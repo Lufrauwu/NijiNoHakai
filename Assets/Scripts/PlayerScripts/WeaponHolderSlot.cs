@@ -1,11 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponHolderSlot : MonoBehaviour
 {
     [SerializeField] private Transform _parentOverride;
-    [SerializeField] private bool _isLeftHandSlot;
-    [SerializeField] private bool _isRghtHandSlot;
     [SerializeField] private GameObject _currentWeaponModel;
+    public bool _isLeftHandSlot;
+    public bool _isRghtHandSlot;
 
     public void UnloadWeapon()
     {
