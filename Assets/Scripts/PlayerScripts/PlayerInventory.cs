@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private WeaponSlotManager _weaponSlotManager;
+
+    public WeaponItem _rightWeapon;
+    public WeaponItem _leftWeapon;
+
+    private void Awake()
     {
-        
+        _weaponSlotManager = GetComponent<WeaponSlotManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        _weaponSlotManager.LoadWeaponOnSlot(_rightWeapon, true);
+        _weaponSlotManager.LoadWeaponOnSlot(_leftWeapon, false);
     }
 }
