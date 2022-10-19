@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool _heavyAttack = true;
     private PlayerMovement _playerInput = default;
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float _timer = 1;
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
-    [SerializeField]  private float gravityValue = -9.81f;
+    [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private Animator _anim = default;
 
     void Awake()
@@ -34,12 +35,14 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main.transform;
+        //_bfSwordParticles.SetActive(false);
     }
 
     void Update()
     {
         LightAttack();
         HeavyAttack();
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -49,7 +52,7 @@ public class PlayerController : MonoBehaviour
         Vector2 movementInput = _playerInput.PlayerMain.Move.ReadValue<Vector2>();
         Vector3 move = new Vector3(movementInput.x, 0f, movementInput.y);
         controller.Move(move * Time.deltaTime * playerSpeed);
-        Dash();
+        //Dash();
         
         if (move != Vector3.zero)
         {
@@ -82,8 +85,10 @@ public class PlayerController : MonoBehaviour
     {
         if (_playerInput.PlayerMain.HeavyAttack.triggered)
         {
-            Debug.Log("HeavyAttack");
+            _heavyAttack = true;
+            StartCoroutine(DeactivateParticles());
             _anim.SetFloat("Hattack", 1);
+            Debug.Log("HeavyAttack");
         }
         else
         {
@@ -104,5 +109,11 @@ public class PlayerController : MonoBehaviour
                 controller.Move(playerVelocity * Time.deltaTime);
             }
         }
+    }
+
+    IEnumerator DeactivateParticles()
+    {
+        yield return new WaitForSeconds(1.5f);
+        _heavyAttack = false;
     }
 }

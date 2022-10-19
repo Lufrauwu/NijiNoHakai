@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08031174, g: 0.099708766, b: 0.30112016, a: 1}
+  m_IndirectSpecularColor: {r: 0.0799131, g: 0.0999747, b: 0.30085722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -323,7 +323,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202063268}
-  m_LocalRotation: {x: 0.0012413736, y: -0.99590045, z: 0.08938371, w: 0.013831208}
+  m_LocalRotation: {x: 0.0012413745, y: -0.99590045, z: 0.08938371, w: 0.013831217}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1674,6 +1674,16 @@ PrefabInstance:
       propertyPath: _anim
       value: 
       objectReference: {fileID: 193251616}
+    - target: {fileID: 6536192171201524737, guid: 07befc5f0c597124b9f4c88714a8ac6a,
+        type: 3}
+      propertyPath: _heavyAttack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536192171201524737, guid: 07befc5f0c597124b9f4c88714a8ac6a,
+        type: 3}
+      propertyPath: _bfSwordParticles
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6536192171201524738, guid: 07befc5f0c597124b9f4c88714a8ac6a,
         type: 3}
       propertyPath: m_RootOrder
