@@ -65,7 +65,39 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6d8d7001898b5534282ced7a2efc6af5,
         type: 3}
       propertyPath: m_Name
-      value: _sword_23
+      value: BF_Sword
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d8d7001898b5534282ced7a2efc6af5, type: 3}
+--- !u!1 &122380457467879931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6d8d7001898b5534282ced7a2efc6af5,
+    type: 3}
+  m_PrefabInstance: {fileID: 969296127652240554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5298950609454813566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122380457467879931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215bbc4a46f18e04fb1d179ddec25ffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _item: {fileID: 0}
+--- !u!114 &-2360780799374049928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122380457467879931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972fa7b6a5496954fa4e92bcdbc23258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _item: {fileID: 0}

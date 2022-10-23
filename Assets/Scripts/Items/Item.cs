@@ -7,4 +7,5 @@ public class Item : ScriptableObject
     [Header("Item Information")]
     public Sprite _itemIcon = default;
     public string _itemName = default;
+    public int _ID = default;
 }
