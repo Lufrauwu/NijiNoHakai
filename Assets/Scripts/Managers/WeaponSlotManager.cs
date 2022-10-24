@@ -6,6 +6,8 @@ public class WeaponSlotManager : MonoBehaviour
 {
     private WeaponHolderSlot _leftHandSlot = default;
     WeaponHolderSlot _rightHandSlot = default;
+    DamageCollider _leftDamageCollider = default;
+    DamageCollider _rightDamageCollider = default;
 
     private void Awake()
     {
@@ -33,5 +35,10 @@ public class WeaponSlotManager : MonoBehaviour
         {
             _rightHandSlot.LoadWeaponModel(weaponItem);
         }
+    }
+
+    private void LoadLeftDamageCollider()
+    {
+        
     }
 }

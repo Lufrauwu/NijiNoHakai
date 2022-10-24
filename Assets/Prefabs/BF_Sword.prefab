@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 790690474911529793}
   - component: {fileID: 806761224462145270}
+  - component: {fileID: 7095900196364035162}
   m_Layer: 0
   m_Name: BF_Sword
   m_TagString: Untagged
@@ -47,6 +48,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 6536192171201524737, guid: 07befc5f0c597124b9f4c88714a8ac6a, type: 3}
   _swordParticles: {fileID: 9203025539892843162}
+--- !u!65 &7095900196364035162
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122380457467879931}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19223283, y: 1.1064993, z: 0.18128516}
+  m_Center: {x: -0.06864547, y: 0.73228854, z: 0.023272924}
 --- !u!1 &896930968384096378
 GameObject:
   m_ObjectHideFlags: 0
