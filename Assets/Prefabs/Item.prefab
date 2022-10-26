@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 7200514542634176140}
   - component: {fileID: 4613528058694093080}
   - component: {fileID: 7118082654635797069}
+  - component: {fileID: 6109032950197732787}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -200,6 +201,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6109032950197732787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7706805130894235220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 926ddde638fb2dd499092a8fee7984af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _removeButton: {fileID: 6833178509874989956}
 --- !u!1 &8919349239938873353
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,4 +470,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 429749610516436845}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6109032950197732787}
+        m_TargetAssemblyTypeName: InventoryItemController, Assembly-CSharp
+        m_MethodName: RemoveItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
