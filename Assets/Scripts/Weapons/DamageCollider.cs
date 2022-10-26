@@ -16,22 +16,31 @@ public class DamageCollider : MonoBehaviour
 
     public void EnableDamageCollider()
     {
-        _damageCollider.enabled = true;
+        this._damageCollider.enabled = true;
     }
 
     public void DisableDamageCollider()
     {
-        _damageCollider.enabled = false;
+        this._damageCollider.enabled = false;
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Hittable")
+        if (collision.tag == "Player")
         {
             Player player = collision.GetComponent<Player>();
             if (player != null)
             {
                 player.TakeDamage(_currentWeaponDamage);
+            }
+        }
+
+        if (collision.tag == "Enemy")
+        {
+            EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
+            if (enemyStats != null)
+            {
+                enemyStats.TakeDamage(_currentWeaponDamage);
             }
         }
     }

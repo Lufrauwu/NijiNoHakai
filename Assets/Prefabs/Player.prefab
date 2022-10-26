@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6f8f466ff0d4d5dbfbd6a263f2a6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heavyAttack: 1
   playerSpeed: 2
   jumpHeight: 1
   gravityValue: -9.81

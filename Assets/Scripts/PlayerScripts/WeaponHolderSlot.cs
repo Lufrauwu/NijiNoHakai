@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponHolderSlot : MonoBehaviour
 {
     [SerializeField] private Transform _parentOverride;
-    [SerializeField] private GameObject _currentWeaponModel;
+    public GameObject _currentWeaponModel;
     public bool _isLeftHandSlot;
     public bool _isRghtHandSlot;
 

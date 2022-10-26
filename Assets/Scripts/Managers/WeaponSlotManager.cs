@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponSlotManager : MonoBehaviour
 {
-    private WeaponHolderSlot _leftHandSlot = default;
+    WeaponHolderSlot _leftHandSlot = default;
     WeaponHolderSlot _rightHandSlot = default;
     DamageCollider _leftDamageCollider = default;
     DamageCollider _rightDamageCollider = default;
@@ -30,15 +30,48 @@ public class WeaponSlotManager : MonoBehaviour
         if (isLeft)
         {
             _leftHandSlot.LoadWeaponModel(weaponItem);
+            LoadLeftWeaponDamageCollider();
         }
         else
         {
             _rightHandSlot.LoadWeaponModel(weaponItem);
+            LoadRightWeaponDamageCollider();
         }
     }
 
-    private void LoadLeftDamageCollider()
+    #region Handle Weapons Damage Collider
+
+    private void LoadLeftWeaponDamageCollider()
     {
-        
+        _leftDamageCollider = _leftHandSlot._currentWeaponModel.GetComponentInChildren<DamageCollider>();
     }
+
+    private void LoadRightWeaponDamageCollider()
+    {
+        _rightDamageCollider = _rightHandSlot._currentWeaponModel.GetComponentInChildren<DamageCollider>(); 
+    }
+
+    public void OpenRightDamageCollider()
+    {
+        LoadRightWeaponDamageCollider();
+        _rightDamageCollider.EnableDamageCollider();
+    }
+
+    public void OpenLeftDamageCollider()
+    {
+        _leftDamageCollider.EnableDamageCollider();
+    }
+
+    public void CloseRightHandDamageCollider()
+    {
+        LoadRightWeaponDamageCollider();
+        _rightDamageCollider.DisableDamageCollider();
+    }
+
+    public void CloseLeftHandDamageCollider()
+    {
+        _leftDamageCollider.DisableDamageCollider();
+    }
+
+    #endregion
 }
