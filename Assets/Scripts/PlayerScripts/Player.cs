@@ -22,16 +22,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10);
             if (_currentHealth == 0)
             {
                 Time.timeScale = 0;
                 _gameOver.SetActive(true);
                 _pauseButton.SetActive(false);
             }
-        }
     }
 
     private int SetMaxHealth()

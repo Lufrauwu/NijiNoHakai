@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6536192171201524737}
   - component: {fileID: 6536192171201524736}
   - component: {fileID: 7510141338063165246}
+  - component: {fileID: 1424572419389178340}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -66,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6f8f466ff0d4d5dbfbd6a263f2a6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heavyAttack: 1
   playerSpeed: 2
   jumpHeight: 1
   gravityValue: -9.81
@@ -100,6 +102,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b85ce40e70e21f4ca4976cae88492d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1424572419389178340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536192171201524748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214a2e3afd475ce4dbf030ea6c7b2119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rightWeapon: {fileID: 11400000, guid: 7bb1a584bd6084d47b63a34371c564aa, type: 2}
+  _leftWeapon: {fileID: 11400000, guid: 7bb1a584bd6084d47b63a34371c564aa, type: 2}
 --- !u!1001 &4506975402116542896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -284,6 +300,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentOverride: {fileID: 4506975402116410234}
+  _currentWeaponModel: {fileID: 0}
   _isLeftHandSlot: 0
   _isRghtHandSlot: 1
-  _currentWeaponModel: {fileID: 0}
