@@ -8,14 +8,14 @@ public class FieldOfView : MonoBehaviour
     public float _radius;
     [Range(0, 360)]
     public float _angle;
-    public GameObject _playerRef;
+    public GameObject _EnemyRef;
     public LayerMask _targetMask;
     public LayerMask _obstrucionMask;
-    public bool _canSeePlayer;
+    public bool _canSeeEnemies;
 
     private void Start()
     {
-        _playerRef = GameObject.FindGameObjectWithTag("Player");
+        _EnemyRef = GameObject.FindGameObjectWithTag("Enemy");
         StartCoroutine(FOVRoutine());
     }
 
@@ -46,21 +46,21 @@ public class FieldOfView : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, _obstrucionMask))
                 {
-                    _canSeePlayer = true;
+                    _canSeeEnemies = true;
                 }
                 else
                 {
-                    _canSeePlayer = false;
+                    _canSeeEnemies = false;
                 }
             }
             else
             {
-                _canSeePlayer = false;
+                _canSeeEnemies = false;
             }
         }
-        else if (_canSeePlayer)
+        else if (_canSeeEnemies)
         {
-            _canSeePlayer = false;
+            _canSeeEnemies = false;
         }
     }
 }

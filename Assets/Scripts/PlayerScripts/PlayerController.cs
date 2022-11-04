@@ -96,19 +96,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Dash()
+    public void LockOn()
     {
-        if (_playerInput.PlayerMain.Jump.triggered)
-        {
-            _timer += 1;
-            for (int i = 0; i < 2; i++)
-            {
-                
-                print("Active");
-                playerVelocity.x = 1;
-                controller.Move(playerVelocity * Time.deltaTime);
-            }
-        }
+        
     }
 
     IEnumerator DeactivateParticles()
