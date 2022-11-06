@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public bool _heavyAttack = true;
     private PlayerMovement _playerInput = default;
-    private CharacterController controller;
+    public CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private Transform _camera;
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private Animator _anim = default;
+    public Vector3 move;
 
     void Awake()
     {
@@ -50,18 +51,24 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 movementInput = _playerInput.PlayerMain.Move.ReadValue<Vector2>();
-        Vector3 move = new Vector3(movementInput.x, 0f, movementInput.y);
+        move = new Vector3(movementInput.x, 0f, movementInput.y);
+        move = _camera.forward * move.z + _camera.right * move.x;
+        move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
+        
+        
         //Dash();
         
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
-            _anim.SetFloat("walking", 1);
+            _anim.SetFloat("VelocityZ", Mathf.Abs(move.z));
+            _anim.SetFloat("Velocity", Mathf.Abs(move.x));
         }
         else
         {
-            _anim.SetFloat("walking", 0);
+            _anim.SetFloat("VelocityZ", Mathf.Abs(move.y));
+            _anim.SetFloat("Velocity", Mathf.Abs(move.y));
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -96,19 +103,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Dash()
+    public void PlayerTargetAnimation(string targetAnim, bool isInteracting)
     {
-        if (_playerInput.PlayerMain.Jump.triggered)
-        {
-            _timer += 1;
-            for (int i = 0; i < 2; i++)
-            {
-                
-                print("Active");
-                playerVelocity.x = 1;
-                controller.Move(playerVelocity * Time.deltaTime);
-            }
-        }
+        _anim.applyRootMotion = isInteracting;
+        _anim.SetBool("isInteracting", isInteracting);
+        _anim.CrossFade(targetAnim, 0.2f);
     }
 
     IEnumerator DeactivateParticles()

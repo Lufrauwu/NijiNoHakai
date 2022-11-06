@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6536192171201524737}
   - component: {fileID: 6536192171201524736}
   - component: {fileID: 7510141338063165246}
+  - component: {fileID: 1616459170770469911}
   - component: {fileID: 1424572419389178340}
   m_Layer: 0
   m_Name: Player
@@ -68,10 +69,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heavyAttack: 1
+  controller: {fileID: 0}
   playerSpeed: 2
   jumpHeight: 1
   gravityValue: -9.81
   _anim: {fileID: 0}
+  move: {x: 0, y: 0, z: 0}
 --- !u!114 &6536192171201524736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +105,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b85ce40e70e21f4ca4976cae88492d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1616459170770469911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536192171201524748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d57cb02b4c0114d96f18c4976c53a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 10
+  dashTime: 1
 --- !u!114 &1424572419389178340
 MonoBehaviour:
   m_ObjectHideFlags: 0
