@@ -6,11 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public bool _heavyAttack = true;
     private PlayerMovement _playerInput = default;
+    private FieldOfView _fov;
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private Transform _camera;
     private float _timer = 1;
+    [SerializeField] private Transform _camera;
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerInput = new PlayerMovement();
         controller = GetComponent<CharacterController>();
+        _fov = GetComponent<FieldOfView>();
     }
 
     void OnEnable()
@@ -96,10 +98,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void LockOn()
+    //  WIP
+    /*public void LockOn()
     {
-        
-    }
+        if (_playerInput.PlayerMain.LockOn.triggered && _fov._canSeeEnemies)
+        {
+            
+        }
+    }*/
 
     IEnumerator DeactivateParticles()
     {
