@@ -6,13 +6,14 @@ public class PlayerController : MonoBehaviour
 {
     public Animator _anim = default;
     public bool _heavyAttack = true;
+    public bool _isAttacking;
     public Vector3 move;
-    private PlayerMovement _playerInput = default;
     public CharacterController controller;
+    private PlayerMovement _playerInput = default;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
     private Transform _camera;
     private float _timer = 1;
+    [SerializeField] private StaminaBar _staminaBar;
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerInput = new PlayerMovement();
         controller = GetComponent<CharacterController>();
+        _isAttacking = false;
     }
 
     void OnEnable()
@@ -44,21 +46,20 @@ public class PlayerController : MonoBehaviour
         LightAttack();
         HeavyAttack();
 
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        if (!_isAttacking)
         {
-            playerVelocity.y = 0f;
+            MovePlayer();
         }
+    }
 
+    public void MovePlayer()
+    {
         Vector2 movementInput = _playerInput.PlayerMain.Move.ReadValue<Vector2>();
         move = new Vector3(movementInput.x, 0f, movementInput.y);
         move = _camera.forward * move.z + _camera.right * move.x;
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
-        
-        
-        //Dash();
-        
+
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
@@ -74,31 +75,37 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
-
+    
     public void LightAttack()
     {
-        if (_playerInput.PlayerMain.LightAttack.triggered)
+        if (_playerInput.PlayerMain.LightAttack.triggered && _staminaBar._currentStamina >= 20)
         {
+            StartCoroutine(IsAttacking());
             Debug.Log("attack");
             _anim.SetFloat("attack", 1);
+            StaminaBar.instance.UseStamina(20);
         }
         else
         {
+            Debug.Log("Not Enough Stamina");
             _anim.SetFloat("attack", 0);
         }
     }
 
     public void HeavyAttack()
     {
-        if (_playerInput.PlayerMain.HeavyAttack.triggered)
+        if (_playerInput.PlayerMain.HeavyAttack.triggered && _staminaBar._currentStamina >= 33)
         {
+            StartCoroutine(IsAttacking());
             _heavyAttack = true;
             StartCoroutine(DeactivateParticles());
             _anim.SetFloat("Hattack", 1);
+            StaminaBar.instance.UseStamina(33);
             Debug.Log("HeavyAttack");
         }
         else
         {
+            Debug.Log("Not Enough Stamina");
             _anim.SetFloat("Hattack", 0);
         }
     }
@@ -114,5 +121,12 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         _heavyAttack = false;
+    }
+
+    IEnumerator IsAttacking()
+    {
+        _isAttacking = true;
+        yield return new WaitForSeconds(1f);
+        _isAttacking = false;
     }
 }

@@ -25,12 +25,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-            if (_currentHealth <= 0)
-            {
-                _controller._anim.SetBool("dead", true);
-                _gameOver.SetActive(true);
-                _pauseButton.SetActive(false);
-            }
+        if (_currentHealth <= 0)
+        {
+            _controller._anim.SetBool("dead", true);
+            _gameOver.SetActive(true);
+            _pauseButton.SetActive(false);
+        }
     }
 
     private int SetMaxHealth()

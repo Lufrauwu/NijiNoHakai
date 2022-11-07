@@ -311,7 +311,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202063268}
-  m_LocalRotation: {x: -0.0000000015854604, y: -0.9959965, z: 0.08939257, w: -0.000000017664924}
+  m_LocalRotation: {x: 0.0000000015854607, y: -0.9959965, z: 0.08939257, w: 0.000000017664926}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1197,6 +1197,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a5778798a2b4c04180f67918dab97cd, type: 3}
+--- !u!114 &1386743737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3320907808747798012, guid: 10066c4aa39344941b1ec40d50f3a39b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7416017794410012663}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23298b6428b7574e8a4e43823ff7491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1456098604
 GameObject:
   m_ObjectHideFlags: 3
@@ -2273,6 +2285,11 @@ PrefabInstance:
       propertyPath: dashSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1616459170770469911, guid: 07befc5f0c597124b9f4c88714a8ac6a,
+        type: 3}
+      propertyPath: _staminaBar
+      value: 
+      objectReference: {fileID: 1386743737}
     - target: {fileID: 3198911691478753643, guid: 07befc5f0c597124b9f4c88714a8ac6a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2308,6 +2325,11 @@ PrefabInstance:
       propertyPath: _pauseButton
       value: 
       objectReference: {fileID: 550312405}
+    - target: {fileID: 6536192171201524737, guid: 07befc5f0c597124b9f4c88714a8ac6a,
+        type: 3}
+      propertyPath: _staminaBar
+      value: 
+      objectReference: {fileID: 1386743737}
     - target: {fileID: 6536192171201524738, guid: 07befc5f0c597124b9f4c88714a8ac6a,
         type: 3}
       propertyPath: m_RootOrder
@@ -2388,6 +2410,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3554022996687612715, guid: 10066c4aa39344941b1ec40d50f3a39b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666815244132131355, guid: 10066c4aa39344941b1ec40d50f3a39b,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666815244132131355, guid: 10066c4aa39344941b1ec40d50f3a39b,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

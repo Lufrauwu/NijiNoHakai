@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ThirdPersonDash : MonoBehaviour
 {
-    
     private PlayerController _playerController;
+    [SerializeField] private StaminaBar _staminaBar;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTime;
 
@@ -17,7 +17,15 @@ public class ThirdPersonDash : MonoBehaviour
 
     public void TriggerDash()
     {
-        StartCoroutine(Dash());
+        if (_staminaBar._currentStamina >= 50)
+        {
+            StartCoroutine(Dash()); 
+            StaminaBar.instance.UseStamina(50);
+        }
+        else
+        {
+            Debug.Log("Not Enough Stamina");
+        }
     }
     
     IEnumerator Dash()
