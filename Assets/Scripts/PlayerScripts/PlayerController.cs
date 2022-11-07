@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Enough Stamina");
+           // Debug.Log("Not Enough Stamina");
             _anim.SetFloat("attack", 0);
         }
     }
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Enough Stamina");
+           // Debug.Log("Not Enough Stamina");
             _anim.SetFloat("Hattack", 0);
         }
     }
