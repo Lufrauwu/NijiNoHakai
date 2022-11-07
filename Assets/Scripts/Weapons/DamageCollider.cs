@@ -9,6 +9,8 @@ public class DamageCollider : MonoBehaviour
     Collider _damageCollider;
     [Header("Enemy Damage")] 
     public int _enemyDamage = 40;
+    private int _hiddenDamage = 0;
+
     
     [Header("Player Damage")]
     public int _currentWeaponDamage = 20;
