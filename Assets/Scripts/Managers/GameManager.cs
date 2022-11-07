@@ -21,6 +21,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_lastCheckpointPos);
+        //Debug.Log(_lastCheckpointPos);
     }
 }

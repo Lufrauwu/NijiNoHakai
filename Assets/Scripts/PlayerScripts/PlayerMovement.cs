@@ -73,7 +73,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""LockOn"",
+                    ""name"": ""Heal"",
                     ""type"": ""Button"",
                     ""id"": ""28b75de8-28bc-4d6a-b511-ca9f9a0ddde7"",
                     ""expectedControlType"": ""Button"",
@@ -222,7 +222,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""LockOn"",
+                    ""action"": ""Heal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -233,7 +233,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""LockOn"",
+                    ""action"": ""Heal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -249,7 +249,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
         m_PlayerMain_Look = m_PlayerMain.FindAction("Look", throwIfNotFound: true);
         m_PlayerMain_LightAttack = m_PlayerMain.FindAction("LightAttack", throwIfNotFound: true);
         m_PlayerMain_HeavyAttack = m_PlayerMain.FindAction("HeavyAttack", throwIfNotFound: true);
-        m_PlayerMain_LockOn = m_PlayerMain.FindAction("LockOn", throwIfNotFound: true);
+        m_PlayerMain_Heal = m_PlayerMain.FindAction("Heal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -314,7 +314,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMain_Look;
     private readonly InputAction m_PlayerMain_LightAttack;
     private readonly InputAction m_PlayerMain_HeavyAttack;
-    private readonly InputAction m_PlayerMain_LockOn;
+    private readonly InputAction m_PlayerMain_Heal;
     public struct PlayerMainActions
     {
         private @PlayerMovement m_Wrapper;
@@ -324,7 +324,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_PlayerMain_Look;
         public InputAction @LightAttack => m_Wrapper.m_PlayerMain_LightAttack;
         public InputAction @HeavyAttack => m_Wrapper.m_PlayerMain_HeavyAttack;
-        public InputAction @LockOn => m_Wrapper.m_PlayerMain_LockOn;
+        public InputAction @Heal => m_Wrapper.m_PlayerMain_Heal;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMain; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -349,9 +349,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @HeavyAttack.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnHeavyAttack;
                 @HeavyAttack.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnHeavyAttack;
                 @HeavyAttack.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnHeavyAttack;
-                @LockOn.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnLockOn;
-                @LockOn.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnLockOn;
-                @LockOn.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnLockOn;
+                @Heal.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnHeal;
+                @Heal.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnHeal;
+                @Heal.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnHeal;
             }
             m_Wrapper.m_PlayerMainActionsCallbackInterface = instance;
             if (instance != null)
@@ -371,9 +371,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @HeavyAttack.started += instance.OnHeavyAttack;
                 @HeavyAttack.performed += instance.OnHeavyAttack;
                 @HeavyAttack.canceled += instance.OnHeavyAttack;
-                @LockOn.started += instance.OnLockOn;
-                @LockOn.performed += instance.OnLockOn;
-                @LockOn.canceled += instance.OnLockOn;
+                @Heal.started += instance.OnHeal;
+                @Heal.performed += instance.OnHeal;
+                @Heal.canceled += instance.OnHeal;
             }
         }
     }
@@ -385,6 +385,6 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnLightAttack(InputAction.CallbackContext context);
         void OnHeavyAttack(InputAction.CallbackContext context);
-        void OnLockOn(InputAction.CallbackContext context);
+        void OnHeal(InputAction.CallbackContext context);
     }
 }
