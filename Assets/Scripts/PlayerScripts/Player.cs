@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private PlayerController _controller;
     [SerializeField] private GameObject _gameOver = default;
     [SerializeField] private GameObject _pauseButton = default;
     
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        _controller = GetComponent<PlayerController>();
         _maxHealth = SetMaxHealth();
         _currentHealth = _maxHealth;
         _healthBar.SetMaxHealth(_maxHealth);
@@ -22,9 +25,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-            if (_currentHealth == 0)
+            if (_currentHealth <= 0)
             {
-                Time.timeScale = 0;
+                _controller._anim.SetBool("dead", true);
                 _gameOver.SetActive(true);
                 _pauseButton.SetActive(false);
             }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class AIController : MonoBehaviour
 {
+    public Animator _enemyAnim;
     public NavMeshAgent navMeshAgent;               //  Nav mesh agent component
     public float startWaitTime = 4;                 //  Wait time of every action
     public float timeToRotate = 2;                  //  Wait time when the enemy detect near the player without seeing
@@ -30,7 +31,8 @@ public class AIController : MonoBehaviour
     bool m_playerInRange;                           //  If the player is in range of vision, state of chasing
     bool m_PlayerNear;                              //  If the player is near, state of hearing
     bool m_IsPatrol;                                //  If the enemy is patrol, state of patroling
-    bool m_CaughtPlayer;                            //  if the enemy has caught the player
+    public bool m_CaughtPlayer;                            //  if the enemy has caught the player
+    private static readonly int Walk = Animator.StringToHash("walk");
 
     void Start()
     {
@@ -73,6 +75,7 @@ public class AIController : MonoBehaviour
         if (!m_CaughtPlayer)
         {
             Move(speedRun);
+            _enemyAnim.SetBool("run", true);
             navMeshAgent.SetDestination(m_PlayerPosition);          //  set the destination of the enemy to the player location
         }
         if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)    //  Control if the enemy arrive to the player location
@@ -83,6 +86,8 @@ public class AIController : MonoBehaviour
                 m_IsPatrol = true;
                 m_PlayerNear = false;
                 Move(speedWalk);
+                _enemyAnim.SetBool("run", false);
+                _enemyAnim.SetBool("walk", true);
                 m_TimeToRotate = timeToRotate;
                 m_WaitTime = startWaitTime;
                 navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
@@ -92,6 +97,9 @@ public class AIController : MonoBehaviour
                 if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 2.5f)
                     //  Wait if the current position is not the player position
                     Stop();
+                _enemyAnim.SetBool("walk", false);
+                _enemyAnim.SetBool("run", false);
+                StartCoroutine(AttackTimer());
                 m_WaitTime -= Time.deltaTime;
             }
         }
@@ -126,16 +134,23 @@ public class AIController : MonoBehaviour
                 {
                     NextPoint();
                     Move(speedWalk);
+                    _enemyAnim.SetBool("walk", true);
                     m_WaitTime = startWaitTime;
                 }
                 else
                 {
                     Stop();
+                    _enemyAnim.SetBool("walk", false);
                     m_WaitTime -= Time.deltaTime;
                 }
             }
         }
     }
+
+    /*public void Attacking()
+    {
+        _enemyAnim.SetBool("attack", true);
+    }*/
 
     private void OnAnimatorMove()
     {
@@ -226,5 +241,13 @@ public class AIController : MonoBehaviour
                 m_PlayerPosition = player.transform.position;       //  Save the player's current position if the player is in range of vision
             }
         }
+    }
+
+    IEnumerator AttackTimer()
+    {
+        yield return new WaitForSeconds(0.2f);
+        _enemyAnim.SetBool("attack", true);
+        yield return new WaitForSeconds(2f);
+        _enemyAnim.SetBool("attack", false);
     }
 }

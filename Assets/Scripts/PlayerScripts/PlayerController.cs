@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator _anim = default;
     public bool _heavyAttack = true;
+    public Vector3 move;
     private PlayerMovement _playerInput = default;
     public CharacterController controller;
     private Vector3 playerVelocity;
@@ -14,8 +16,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
-    [SerializeField] private Animator _anim = default;
-    public Vector3 move;
 
     void Awake()
     {

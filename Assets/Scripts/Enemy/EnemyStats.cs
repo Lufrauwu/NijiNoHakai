@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
+    private AIController _ai;
     [SerializeField] private bool _enemyIsDead;
     
     [Header("Health Stats")]
@@ -15,6 +17,7 @@ public class EnemyStats : MonoBehaviour
     private void Awake()
     {
         _enemyIsDead = false;
+        _ai = GetComponent<AIController>();
     }
 
     void Start()
@@ -43,8 +46,15 @@ public class EnemyStats : MonoBehaviour
     {
         if (_currentHealth <= 0 && !_enemyIsDead)
         {
-            Destroy(gameObject);
             _enemyIsDead = true;
+            _ai._enemyAnim.SetBool("die", true);
+            _ai._enemyAnim.SetBool("walk", false);
+            _ai._enemyAnim.SetBool("run", false);
+            _ai._enemyAnim.SetBool("attack", false);
+            _ai._enemyAnim.SetBool("damaged", false);
+            _ai.speedRun = 0;
+            _ai.speedWalk = 0;
+            Destroy(gameObject, 1.69f);
         }
     }
 }

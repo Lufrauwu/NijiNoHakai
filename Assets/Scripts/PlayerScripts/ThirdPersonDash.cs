@@ -28,7 +28,6 @@ public class ThirdPersonDash : MonoBehaviour
         while (Time.time < (startTime + dashTime))
         {
             _playerController.controller.Move(_playerController.move * (dashSpeed * Time.deltaTime));
-            yield return null;
         }
 
         //Other Method without dashTime 
