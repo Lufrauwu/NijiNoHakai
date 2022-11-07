@@ -6,12 +6,14 @@ public class DamageCollider : MonoBehaviour
 {
     Collider _damageCollider;
     public int _currentWeaponDamage = 25;
+    private PlayerController _player;
     private void Awake()
     {
         _damageCollider = GetComponent<Collider>();
         _damageCollider.gameObject.SetActive(true);
         _damageCollider.isTrigger = true;
         _damageCollider.enabled = false;
+        _player = GetComponent<PlayerController>();
     }
 
     public void EnableDamageCollider()
@@ -41,6 +43,11 @@ public class DamageCollider : MonoBehaviour
             if (enemyStats != null)
             {
                 enemyStats.TakeDamage(_currentWeaponDamage);
+            }
+
+            if (enemyStats != null && _player._heavyAttack)
+            {
+                enemyStats.TakeDamage(_currentWeaponDamage + 10);
             }
         }
     }

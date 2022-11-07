@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public Animator _anim = default;
-    public bool _heavyAttack = true;
+    public bool _heavyAttack;
+    public bool _lightAttack;
     public bool _isAttacking;
     public Vector3 move;
     public CharacterController controller;
@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
         _playerInput = new PlayerMovement();
         controller = GetComponent<CharacterController>();
         _isAttacking = false;
+        _heavyAttack = false;
+        _lightAttack = false;
     }
 
     void OnEnable()
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour
         if (_playerInput.PlayerMain.LightAttack.triggered && _staminaBar._currentStamina >= 20)
         {
             StartCoroutine(IsAttacking());
+            _lightAttack = true;
             Debug.Log("attack");
             _anim.SetFloat("attack", 1);
             StaminaBar.instance.UseStamina(20);
@@ -128,5 +131,6 @@ public class PlayerController : MonoBehaviour
         _isAttacking = true;
         yield return new WaitForSeconds(1f);
         _isAttacking = false;
+        _lightAttack = false;
     }
 }
