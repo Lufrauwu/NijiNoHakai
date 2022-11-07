@@ -27,7 +27,7 @@ public class CameraControl : MonoBehaviour
     void Update()
     {
         Vector2 delta = _playerInput.PlayerMain.Look.ReadValue<Vector2>();
-        _camera.m_XAxis.Value += delta.x * 200 * _lookSpeed * Time.deltaTime;
+        _camera.m_XAxis.Value += delta.x * _lookSpeed * Time.deltaTime;
         _camera.m_YAxis.Value += delta.y * _lookSpeed * Time.deltaTime;
     }
 }
