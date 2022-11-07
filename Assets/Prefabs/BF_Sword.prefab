@@ -74,7 +74,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d7fe052031edb4e9b3736fb46aca0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyDamageLevel: 5
+  _enemyDamage: 0
   _currentWeaponDamage: 25
+  _heavyDamage: 35
   _player: {fileID: 6536192171201524737, guid: 07befc5f0c597124b9f4c88714a8ac6a, type: 3}
 --- !u!1 &896930968384096378
 GameObject:

@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
     {
         _heavyAttackButton.SetActive(false);
         _deactivatedHeavyAttackButton.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         _heavyAttackButton.SetActive(true);
         _deactivatedHeavyAttackButton.SetActive(false);
     }

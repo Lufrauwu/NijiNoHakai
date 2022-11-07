@@ -7,7 +7,11 @@ using Random = UnityEngine.Random;
 public class DamageCollider : MonoBehaviour
 {
     Collider _damageCollider;
-    public int _currentWeaponDamage = 25;
+    [Header("Enemy Damage")] 
+    public int _enemyDamage = 40;
+    
+    [Header("Player Damage")]
+    public int _currentWeaponDamage = 20;
     public int _heavyDamage = 35;
     public PlayerController _player;
     private void Awake()
@@ -18,10 +22,9 @@ public class DamageCollider : MonoBehaviour
         _damageCollider.enabled = false;
         //_player = GetComponentInParent<PlayerController>();
     }
-
     private void Update()
     {
-        _currentWeaponDamage = Random.Range(25, 40);
+        _currentWeaponDamage = Random.Range(20, 40);
     }
 
     public void EnableDamageCollider()
@@ -41,7 +44,7 @@ public class DamageCollider : MonoBehaviour
             Player player = collision.GetComponent<Player>();
             if (player != null)
             {
-                player.TakeDamage(_currentWeaponDamage);
+                player.TakeDamage(_enemyDamage);
             }
         }
 
