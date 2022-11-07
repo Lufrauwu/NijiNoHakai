@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentWeaponDamage: 25
+  _player: {fileID: 6536192171201524737, guid: 07befc5f0c597124b9f4c88714a8ac6a, type: 3}
 --- !u!1 &896930968384096378
 GameObject:
   m_ObjectHideFlags: 0

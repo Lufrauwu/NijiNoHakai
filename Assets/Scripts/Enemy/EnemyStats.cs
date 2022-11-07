@@ -39,7 +39,7 @@ public class EnemyStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        _currentHealth = _currentHealth - damage;
+        _currentHealth -= damage;
     }
 
     public void EnemyDie()

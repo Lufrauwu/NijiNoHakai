@@ -11,8 +11,6 @@ public class UIManager : MonoBehaviour
     public GameObject _deactivatedLightAttackButton;
     public GameObject _heavyAttackButton;
     public GameObject _deactivatedHeavyAttackButton;
-    public GameObject _dashButton;
-    public GameObject _deactivatedDashButton;
     public PlayerController _controller;
 
     private void Update()
