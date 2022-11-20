@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2183523759258701649}
   - component: {fileID: 1166019390619250975}
   - component: {fileID: 3651391457635713574}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PT_Pine_Tree_03_dead_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2965727061204253852}
   m_RootOrder: 0
@@ -51,10 +52,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -79,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2478019521095919142
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2965727061204253852}
   - component: {fileID: 8030620336248130541}
-  m_Layer: 0
+  - component: {fileID: 2599028015626813927}
+  m_Layer: 7
   m_Name: PT_Pine_Tree_03_dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +111,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2183523759258701649}
   - {fileID: 1989110942031799553}
@@ -140,6 +146,20 @@ LODGroup:
     renderers:
     - renderer: {fileID: 333890099001029614}
   m_Enabled: 1
+--- !u!136 &2599028015626813927
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478019521095919142}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.27062905
+  m_Height: 4.1576586
+  m_Direction: 1
+  m_Center: {x: 0.01477623, y: 1.5788293, z: 0}
 --- !u!1 &7012318628726996653
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +171,7 @@ GameObject:
   - component: {fileID: 1989110942031799553}
   - component: {fileID: 8051440188430914455}
   - component: {fileID: 6431736309384500220}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PT_Pine_Tree_03_dead_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,6 +188,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2965727061204253852}
   m_RootOrder: 1
@@ -191,10 +212,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -219,6 +242,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8736069243961656051
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +254,7 @@ GameObject:
   - component: {fileID: 8263951166586869868}
   - component: {fileID: 2082334245314964582}
   - component: {fileID: 333890099001029614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PT_Pine_Tree_03_dead_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,6 +271,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2965727061204253852}
   m_RootOrder: 2
@@ -270,10 +295,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -298,3 +325,4 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
