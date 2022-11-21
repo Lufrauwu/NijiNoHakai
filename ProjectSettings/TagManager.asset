@@ -6,11 +6,12 @@ TagManager:
   tags:
   - GM
   - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Boss
   - Water
   - UI
   - Player
