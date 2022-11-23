@@ -60,12 +60,12 @@ GameObject:
   - component: {fileID: 6536192171201524739}
   - component: {fileID: 6536192171201524737}
   - component: {fileID: 6536192171201524736}
-  - component: {fileID: 7510141338063165246}
   - component: {fileID: 1616459170770469911}
   - component: {fileID: 1424572419389178340}
   - component: {fileID: 1610881696}
   - component: {fileID: 1610881706}
   - component: {fileID: 7524615364619544395}
+  - component: {fileID: 1342309626130411169}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -149,18 +149,6 @@ MonoBehaviour:
   _currentHealth: 0
   _maxBurgers: 5
   _burgerAmount: 0
---- !u!114 &7510141338063165246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6536192171201524748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b85ce40e70e21f4ca4976cae88492d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1616459170770469911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +218,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 36
   m_CollisionDetection: 0
+--- !u!114 &1342309626130411169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536192171201524748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1445b742d7b84d940af2334ba75416b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3165582218094577280
 PrefabInstance:
   m_ObjectHideFlags: 0
