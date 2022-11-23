@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class PlayerPosSave : MonoBehaviour
 {
-    private GameManager _gameManager = default;
-
-    private void Start()
-    {
-      //  _gameManager = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
-   //     transform.position = _gameManager._lastCheckpointPos;
-    }
+    //private GameManager _gameManager = default;
     
+    /*public void SavePosition()
+    {
+        _gameManager._lastCheckpointPos = new Vector3(transform.position.x + 5, transform.position.y, transform.position.z);
+    }*/
+
 }

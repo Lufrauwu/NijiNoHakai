@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: 4adce5997ffc9244bb2526d823237506
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 4151dad96675a4547bf2df5c14819c25
+  - enabled: 1
+    path: Assets/Scenes/NewTerrain.unity
+    guid: e939a20a99410a74cb83d30450bfe30c
   m_configObjects: {}
