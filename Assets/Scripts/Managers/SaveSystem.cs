@@ -1,11 +1,11 @@
 using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
-using File = UnityEngine.Windows.File;
+//using File = UnityEngine.Windows.File;
 
 public static class SaveSystem 
 {
-    public static void SavePlayer(Player player)
+  /*  public static void SavePlayer(Player player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.xd";
@@ -34,5 +34,5 @@ public static class SaveSystem
             Debug.Log("Save file not found in " + path);
             return null;
         }
-    }
+    }*/
 }
