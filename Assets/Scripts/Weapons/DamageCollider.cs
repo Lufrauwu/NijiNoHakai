@@ -66,5 +66,18 @@ public class DamageCollider : MonoBehaviour
                 enemyStats.TakeDamage(_heavyDamage);
             }
         }
+
+        if (collision.tag == "Boss")
+        {
+            BossStats bossStats = collision.GetComponent<BossStats>();
+            if (bossStats != null)
+            {
+                bossStats.BossTakeDamage(_currentWeaponDamage - 8);
+                if (_currentWeaponDamage > 38)
+                {
+                    Debug.Log("Critical");
+                }
+            }
+        }
     }
 }

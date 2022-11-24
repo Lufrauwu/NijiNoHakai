@@ -147,7 +147,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy Animator Controller
+  m_Name: Boss Animator Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: walk
@@ -175,12 +175,6 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: damaged
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: bossAttack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

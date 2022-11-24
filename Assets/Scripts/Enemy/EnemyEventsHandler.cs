@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class EnemyEventsHandler : MonoBehaviour
 {
-    private DamageCollider _weaponDamageCollider;
+    private EnemyDamageCollider _weaponDamageCollider;
+    private BossProjectile _projectile;
 
     private void Awake()
     {
-        _weaponDamageCollider = GetComponentInChildren<DamageCollider>();
+        _weaponDamageCollider = GetComponentInChildren<EnemyDamageCollider>();
+        _projectile = GetComponentInChildren<BossProjectile>();
     }
 
     public void OpenEnemyDamageCollider()
@@ -20,5 +22,10 @@ public class EnemyEventsHandler : MonoBehaviour
     public void CloseEnemyDamageCollider()
     {
         _weaponDamageCollider.DisableDamageCollider();
+    }
+
+    public void InstantiateProjectile()
+    {
+        _projectile.Shoot();
     }
 }
