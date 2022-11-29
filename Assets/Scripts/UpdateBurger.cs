@@ -20,6 +20,6 @@ public class UpdateBurger : MonoBehaviour
     {
         _burgerAmount = _playerScript._burgerAmount.ToString();
         _maxBurgerAmount = _playerScript._maxBurgers.ToString();
-        _burgertext.text = _burgerAmount + "/" + _maxBurgerAmount; //!fuck @Miguel 
+        _burgertext.text = "Burgers: " + _burgerAmount + "/" + _maxBurgerAmount; //!fuck @Miguel 
     }
 }

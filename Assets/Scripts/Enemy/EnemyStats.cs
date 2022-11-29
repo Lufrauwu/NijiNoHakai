@@ -8,6 +8,8 @@ public class EnemyStats : MonoBehaviour
 {
     private AIController _ai;
     [SerializeField] private bool _enemyIsDead;
+    [SerializeField] private Player _player;
+    [SerializeField] private DamageCollider _playerWeaponDamage;
     
     [Header("Health Stats")]
     [SerializeField] private int _healthLevel = 10;
@@ -54,6 +56,8 @@ public class EnemyStats : MonoBehaviour
             _ai._enemyAnim.SetBool("damaged", false);
             _ai.speedRun = 0;
             _ai.speedWalk = 0;
+            _player._healthLevel++;
+            _playerWeaponDamage._currentWeaponDamage++;
             Destroy(gameObject, 1.69f);
         }
     }

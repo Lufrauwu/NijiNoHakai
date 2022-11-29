@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
+    [SerializeField] private AudioSource _walkSteps;
+    [SerializeField] private AudioSource _runSteps;
 
     void Awake()
     {
@@ -67,11 +69,30 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.forward = move;
             _anim.SetFloat("VelocityZ", Mathf.Abs(move.z));
             _anim.SetFloat("Velocity", Mathf.Abs(move.x));
+            _walkSteps.Play();
+            if (_anim.GetFloat("VelocityZ") <= 0.5 || _anim.GetFloat("Velocity") <= 0.5)
+            {
+                Debug.Log("Camina");
+                _walkSteps.Play();
+            }
+            else if (_anim.GetFloat("VelocityZ") >= 0.5 || _anim.GetFloat("Velocity") >= 0.5)
+            {
+                Debug.Log("Corre");
+                _walkSteps.Stop();
+                _runSteps.Play();
+            }
+            else if (_anim.GetFloat("VelocityZ") <= 0 && _anim.GetFloat("Velocity") <= 0)
+            {
+                Debug.Log("nah");
+                _walkSteps.Stop();
+                _runSteps.Stop();
+            }
         }
         else
         {
             _anim.SetFloat("VelocityZ", Mathf.Abs(move.y));
             _anim.SetFloat("Velocity", Mathf.Abs(move.y));
+            _walkSteps.Stop();
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;

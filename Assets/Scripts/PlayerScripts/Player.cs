@@ -12,8 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _gameOver = default;
     [SerializeField] private GameObject _pauseButton = default;
     [Header("Health Stats")]
+    public int _healthLevel = 10;
     [SerializeField] private PlayerHealthBar _healthBar = default;
-    [SerializeField] private int _healthLevel = 10;
     [SerializeField] private int _maxHealth;
     [SerializeField] private int _currentHealth;
     [Header("Healing")]
