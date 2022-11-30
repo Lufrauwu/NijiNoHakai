@@ -20,6 +20,7 @@ public class ThirdPersonDash : MonoBehaviour
         if (_staminaBar._currentStamina >= 50)
         {
             StartCoroutine(Dash()); 
+            _playerController._anim.SetBool("dodge", true);
             StaminaBar.instance.UseStamina(50);
         }
         else
@@ -30,6 +31,7 @@ public class ThirdPersonDash : MonoBehaviour
     
     IEnumerator Dash()
     {
+        
         float startTime = Time.time;
         
         //_playerController._controller.Move(_playerController.move * (dashSpeed * Time.deltaTime));
@@ -38,6 +40,7 @@ public class ThirdPersonDash : MonoBehaviour
             _playerController.controller.Move(_playerController.move * (dashSpeed * Time.deltaTime));
             yield return null;
         }
+        _playerController._anim.SetBool("dodge", false);
 
         //Other Method without dashTime 
         /*for (int i = 0; i < 50; i++)
