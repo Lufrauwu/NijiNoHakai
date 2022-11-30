@@ -57,7 +57,6 @@ public class EnemyStats : MonoBehaviour
             _ai.speedRun = 0;
             _ai.speedWalk = 0;
             _player._healthLevel++;
-            _playerWeaponDamage._currentWeaponDamage++;
             Destroy(gameObject, 1.69f);
         }
     }

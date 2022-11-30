@@ -50,6 +50,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        SetMaxHealth();
+        
         if (_currentHealth >= _maxHealth)
         {
             _currentHealth = _maxHealth;
@@ -71,6 +73,7 @@ public class Player : MonoBehaviour
     private int SetMaxHealth()
     {
         _maxHealth = _healthLevel * 10;
+        _currentHealth = _maxHealth;
         return _maxHealth;
     }
 
